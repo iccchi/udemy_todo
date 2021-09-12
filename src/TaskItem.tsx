@@ -4,6 +4,7 @@ import { ListItem, TextField, Grid } from '@material-ui/core'
 import DeleteOutlineOutlinedIcon  from '@material-ui/icons/DeleteOutlineOutlined'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import {db} from './firebase'
+import styles from "./TaskItem.module.css"
 
 interface PROPS {
   id: string;
@@ -34,10 +35,10 @@ export const TaskItem: React.FC<PROPS> = (props) => {
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>)=>setTitle(e.target.value)}
         />
       </Grid>
-      <button onClick={editTask}>
+      <button className={styles.taskitem_icon} onClick={editTask}>
         <EditOutlinedIcon />
       </button>
-      <button onClick={deleteTask}>
+      <button className={styles.taskitem_icon} onClick={deleteTask}>
         <DeleteOutlineOutlinedIcon />
       </button>
     </ListItem>
